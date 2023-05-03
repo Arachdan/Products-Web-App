@@ -36,3 +36,44 @@
     transform: rotate(360deg);
   }
 }
+
+.horizontal_line {
+  height:3px;
+  width:100%;
+  color:blue;
+}
+
+.app {
+  background-color: aqua;
+}
+
+body {
+  background-color: aqua !important;
+}
+
+.custom_container {
+  height: 100vh;
+}
+
+.custom_card {
+  background-color: #0DFF76 !important;
+  width: 22%;
+}
+
+.custom_input_text {
+  background-color: aqua !important;
+  border: none !important;
+}
+
+.custom_input {
+  border-radius: 5px !important;
+  width: 10% !important;
+}
+
+#product_form {
+  width: 30%;
+}
+
+.furniture_input_text {
+  width: 30%;
+}
