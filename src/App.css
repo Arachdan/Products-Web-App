@@ -1,0 +1,79 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.horizontal_line {
+  height:3px;
+  width:100%;
+  color:blue;
+}
+
+.app {
+  background-color: aqua;
+}
+
+body {
+  background-color: aqua !important;
+}
+
+.custom_container {
+  height: 100vh;
+}
+
+.custom_card {
+  background-color: #0DFF76 !important;
+  width: 22%;
+}
+
+.custom_input_text {
+  background-color: aqua !important;
+  border: none !important;
+}
+
+.custom_input {
+  border-radius: 5px !important;
+  width: 10% !important;
+}
+
+#product_form {
+  width: 30%;
+}
+
+.furniture_input_text {
+  width: 30%;
+}
