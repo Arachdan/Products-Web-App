@@ -1,5 +1,7 @@
 <?php
-    class NewProduct {
+    require("autoloader.php");
+
+    class NewProduct extends ProductsHandler {
         private $data = "";
     
         private $sku = "";
@@ -10,14 +12,9 @@
         private $attributes_unit = "";
         private $type = "";
         
-        private $host = "";
-        private $user = "";
-        private $password = "";
-        private $dbname = "";
-        
-        private $connection = "";
-        
         function __construct($received_data) {
+            $this -> loadConnection();
+            
             $this -> data = $received_data;
     
             $this -> sku = $this -> data -> sku;
@@ -31,13 +28,6 @@
             }
             $this -> attributes_unit = $this -> data -> attributes_unit;
             $this -> type = $this -> data -> type;
-            
-            $this -> host = "host_hidden"; // For obvious reasons, it's hidden.
-            $this -> user = "user_hidden"; // For obvious reasons, it's hidden.
-            $this -> password = "password_hidden"; // For obvious reasons, it's hidden.
-            $this -> dbname = "dbname_hidden"; // For obvious reasons, it's hidden.
-            
-            $this -> connection = new mysqli($this -> host, $this -> user, $this -> password, $this -> dbname);
         }
         
         function checkSKU($mysqli, $sku_to_check) {
@@ -47,8 +37,8 @@
             else return true;
         }
         
-        function addNewProduct() {
-            if (!$this -> connection) {
+        function handleProducts() {
+            if(!$this -> connection) {
                 die("Nie udało się połączyć z bazą danych: " . mysqli_connect_error());
             }
             else {

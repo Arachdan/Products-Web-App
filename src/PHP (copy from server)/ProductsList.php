@@ -1,22 +1,8 @@
 <?php
-    class ProductsList {
-        private $host = "";
-        private $user = "";
-        private $password = "";
-        private $dbname = "";
-        
-        private $connection = "";
-        
-        function __construct() {
-            $this -> host = "host_hidden"; // For obvious reasons, it's hidden.
-            $this -> user = "user_hidden"; // For obvious reasons, it's hidden.
-            $this -> password = "password_hidden"; // For obvious reasons, it's hidden.
-            $this -> dbname = "dbname_hidden"; // For obvious reasons, it's hidden.
-            
-            $this -> connection = new mysqli($this -> host, $this -> user, $this -> password, $this -> dbname);
-        }
-        
-        function load() {
+    require("autoloader.php");
+
+    class ProductsList extends ProductsHandler {
+        function handleProducts() {
             if(!$this -> connection) {
                 die("Nie udało się połączyć z bazą danych: " . mysqli_connect_error());
             }
