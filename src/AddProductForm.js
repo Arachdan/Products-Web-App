@@ -112,7 +112,7 @@ function AddProductForm() {
                     Type Switcher
                     &nbsp;
                 </span>
-                <select className="form-select custom_input" id="productType" defaultValue={0} onClick={createProduct}>
+                <select className="form-select custom_input" id="productType" defaultValue={0} onChange={createProduct}>
                     <option value={0}>Select type</option>
                     <option value={1} id="DVD">DVD</option>
                     <option value={2} id="Book">Book</option>
