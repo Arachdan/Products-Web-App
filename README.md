@@ -1,12 +1,8 @@
 # Products Web App
 
-A lightweight inventory management application built with React, Bootstrap, and PHP. The app lets users view products, add new items, validate form data, and delete selected entries through a simple CRUD workflow.
-
 ## Overview
 
-Products Web App is a small product dashboard designed around a real-world workflow: manage inventory, track item details, and handle form validation before sending data to a backend service.
-
-The project is intentionally focused and easy to follow, which makes it a good example of a practical frontend application in action.
+Products Web App is a lightweight inventory management application built with React, Bootstrap, and PHP. The app lets users view products, add new items, validate form data, and delete selected entries.
 
 ## Features
 
@@ -81,35 +77,6 @@ This logic is implemented in `src/product_classes.js` and enforced through the v
 
 - PHP API endpoints for loading, saving, and deleting products
 
-## Architecture
-
-```text
-src/
-├── App.js
-├── App.css
-├── AddProductForm.js
-├── AddProductUpperFragment.js
-├── ProductList.js
-├── ProductListUpperFragment.js
-├── product_classes.js
-├── inputsCheck.js
-├── typeCheck.js
-├── saveProduct.js
-├── loadProducts.js
-├── DefaultAddingAlert.js
-├── Note.js
-├── index.js
-├── index.css
-├── logo.svg
-├── reportWebVitals.js
-├── pages/
-│   ├── AddProductPage.js
-│   └── ProductListPage.js
-├── public/
-├── package.json
-└── README.md
-```
-
 ## How It Works
 
 1. The user opens the product list page.
@@ -162,17 +129,3 @@ npm install
 ```bash
 npm start
 ```
-
-### Production build
-
-```bash
-npm run build
-```
-
-## Notes
-
-This is a small, practical product management app built for learning, experimentation, and portfolio presentation. It focuses on clear flow, straightforward UI, and a realistic example of frontend validation and API communication.
-
-## Author
-
-Built by Arachdan.
