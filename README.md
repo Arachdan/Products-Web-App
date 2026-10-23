@@ -1,113 +1,85 @@
 # Products Web App
 
-<p align="center">
-  <img src="https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white" alt="React 18" />
-  <img src="https://img.shields.io/badge/Bootstrap-5-7952B3?logo=bootstrap&logoColor=white" alt="Bootstrap 5" />
-  <img src="https://img.shields.io/badge/PHP-Backend-777BB4?logo=php&logoColor=white" alt="PHP backend" />
-  <img src="https://img.shields.io/badge/Status-Portfolio%20Project-0EA5E9" alt="Portfolio project" />
-</p>
+A lightweight inventory management application built with React, Bootstrap, and PHP. The app lets users view products, add new items, validate form data, and delete selected entries through a simple CRUD workflow.
 
-A React-based product management dashboard built to demonstrate real-world CRUD workflows, validation logic, and frontend-backend integration in a compact, portfolio-ready project.
+## Overview
 
-## Project Overview
+Products Web App is a small product dashboard designed around a real-world workflow: manage inventory, track item details, and handle form validation before sending data to a backend service.
 
-Products Web App is a practical inventory management application for adding, reviewing, validating, and removing products. It combines a dynamic React frontend with a PHP-powered API layer to simulate a realistic product administration workflow.
+The project is intentionally focused and easy to follow, which makes it a good example of a practical frontend application in action.
 
-This project is especially relevant for showcasing:
+## Features
 
-- React component-driven UI development
-- dynamic form generation and validation
-- clean routing between pages
-- API-driven data loading and persistence
-- business rules implemented in frontend logic
-- portfolio-level project structure and UX polish
-
-## Why This Project Matters
-
-This project demonstrates a complete product management workflow in a small application, which makes it a strong fit for recruiter-facing portfolio work. It reflects the kind of thinking employers look for in frontend roles:
-
-- understanding of user flows
-- product data modeling
-- validation and defensive coding
-- communication between UI and server-side services
-- practical implementation of CRUD patterns
-
-## App Preview
-
-### Product List View
-
-![Product List Preview](https://raw.githubusercontent.com/Arachdan/Products-Web-App/master/public/logo192.png)
-
-### Add Product Form
-
-![Add Product Form Preview](https://raw.githubusercontent.com/Arachdan/Products-Web-App/master/public/logo512.png)
-
-> These visuals are included as project placeholders. For a more polished GitHub presentation, replace them with real application screenshots saved in a `public/screenshots` folder and referenced here.
-
-## Visual Mockup
-
-```text
-+----------------------------------------------------+
-| Product List                          [ADD] [DEL] |
-+----------------------------------------------------+
-| SKU        | Name           | Price | Type         |
-|------------|----------------|-------|--------------|
-| SKU-001    | Wireless Mouse | $24   | DVD          |
-| SKU-002    | Clean Code     | $42   | Book         |
-| SKU-003    | Desk Table     | $180  | Furniture    |
-+----------------------------------------------------+
-
-+----------------------------------------------------+
-| Add Product                                        |
-+----------------------------------------------------+
-| SKU:    [SKU-004]                                  |
-| Name:   [Ergonomic Chair]                          |
-| Price:  [$249]                                     |
-| Type:   [Furniture ▼]                              |
-| Height: [90]  Width: [60]  Length: [70]            |
-| [Save]  [Cancel]                                   |
-+----------------------------------------------------+
-```
-
-## Key Features
-
-- Product list dashboard with dynamic data loading
-- Add product workflow with category-based form fields
-- Type-specific product forms for:
+- Product list view with dynamic loading
+- Add product form with category-based fields
+- Support for three product types:
   - DVD
   - Book
   - Furniture
-- Validation for required fields and numeric constraints
-- Mass deletion of selected products
+- Input validation before saving
+- Real-time validation feedback
+- Bulk deletion of selected products
+- Routing between the product list and add-product page
 - Clean Bootstrap-based interface
-- Client-side navigation using React Router
-- External PHP endpoints for persistence and retrieval
 
-## Product Types and Business Rules
+## App Preview
 
-The application supports three product categories with different attribute requirements:
+The app is designed around two main screens: a product list and a product creation form.
 
-- DVD → size in MB
-- Book → weight in KG
-- Furniture → height, width, and length in CM
+### Product List
 
-The project implements these rules in `src/product_classes.js`, `src/inputsCheck.js`, and `src/typeCheck.js`, providing a realistic example of business rule enforcement in a frontend application.
+```text
++--------------------------------------------------------------+
+| Product List                                [ADD] [MASS DELETE] |
++--------------------------------------------------------------+
+| ☑ | SKU      | Name              | Price | Type       |
+|---|----------|-------------------|-------|------------|
+| ☑ | SKU-001  | Wireless Mouse    | $24   | DVD        |
+| ☑ | SKU-002  | Clean Code        | $42   | Book       |
+| ☑ | SKU-003  | Desk Table        | $180  | Furniture  |
++--------------------------------------------------------------+
+```
 
-## Technical Stack
+### Add Product Form
+
+```text
++--------------------------------------------------------------+
+| Add Product                                                  |
++--------------------------------------------------------------+
+| SKU:   [SKU-004]                                             |
+| Name:  [Ergonomic Chair]                                     |
+| Price: [$249]                                                |
+| Type:  [Furniture ▼]                                         |
+| Height: [90]  Width: [60]  Length: [70]                     |
+| [Save]              [Cancel]                                 |
++--------------------------------------------------------------+
+```
+
+> Screenshots will be added here as the project evolves.
+
+## Product Types
+
+The app supports three product categories, each with a different set of required attributes:
+
+- DVD: size in MB
+- Book: weight in KG
+- Furniture: height, width, and length in CM
+
+This logic is implemented in `src/product_classes.js` and enforced through the validation layer in `src/inputsCheck.js` and `src/typeCheck.js`.
+
+## Tech Stack
 
 ### Frontend
 
 - React 18
 - React Router DOM
 - Bootstrap 5
-- React Bootstrap
 - jQuery
 - JavaScript (ES6+)
 
 ### Backend
 
-- PHP endpoints hosted externally
-- REST-style data operations for create, read, and delete actions
+- PHP API endpoints for loading, saving, and deleting products
 
 ## Architecture
 
@@ -131,55 +103,51 @@ src/
 ├── logo.svg
 ├── reportWebVitals.js
 ├── pages/
-│   ├── ProductListPage.js
-│   └── AddProductPage.js
+│   ├── AddProductPage.js
+│   └── ProductListPage.js
 ├── public/
-└── package.json
+├── package.json
+└── README.md
 ```
 
-## Workflow
+## How It Works
 
-1. User opens the product list page.
-2. Product data is fetched from the PHP backend.
-3. User navigates to the add-product page.
-4. Product type is selected from the dropdown.
-5. Dynamic form fields appear based on the selected category.
-6. The app validates required input.
-7. Valid data is submitted to the backend.
-8. Product list refreshes after successful save or delete.
+1. The user opens the product list page.
+2. Product data is fetched from a PHP endpoint.
+3. The user navigates to the add-product page.
+4. The selected product type determines which input fields appear.
+5. Client-side validation checks required values before submission.
+6. Valid data is sent to the backend.
+7. The product list refreshes after successful save or delete actions.
 
-## Validation Strategy
+## Validation
 
-The app validates before submission to prevent incorrect data from reaching the API:
+Before a product can be saved, the app checks:
 
-- SKU is required
-- name is required
-- price must be a positive number
-- product-specific attributes must be valid
+- SKU is present
+- name is present
+- price is valid and greater than zero
+- type-specific attributes are filled correctly
 
-This logic is centralized in:
-
-- `src/inputsCheck.js`
-- `src/typeCheck.js`
-- `src/DefaultAddingAlert.js`
+This prevents invalid entries from being submitted to the server.
 
 ## Backend Integration
 
-The app uses PHP endpoints to manage data:
+The frontend uses external PHP endpoints to handle product operations:
 
 - load products
 - save product
 - delete selected products
 
-These calls are defined in the frontend logic and demonstrate how a React interface can interact with a remote service while keeping the UI layer clean and easy to reason about.
+This keeps the front-end focused on the user experience while the backend takes care of storage and retrieval.
 
 ## Getting Started
 
-### Prerequisites
+### Requirements
 
 - Node.js
 - npm
-- access to the configured backend endpoints
+- access to the configured PHP backend endpoints
 
 ### Installation
 
@@ -189,7 +157,7 @@ cd Products-Web-App
 npm install
 ```
 
-### Run locally
+### Run the app locally
 
 ```bash
 npm start
@@ -201,23 +169,9 @@ npm start
 npm run build
 ```
 
-## Project Highlights
+## Notes
 
-This project stands out because it combines multiple important developer skills in a single, understandable application:
-
-- UI composition and layout design
-- route-driven navigation
-- dynamic form handling
-- frontend validation logic
-- business-focused data modeling
-- API communication and CRUD patterns
-- practical, portfolio-friendly project scope
-
-## Summary
-
-Products Web App is a compact but technically meaningful frontend project that demonstrates product management functionality, validation logic, and API-driven interaction in a polished, recruiter-friendly way.
-
-It is ideal for showcasing the kind of thinking and implementation skills expected from a junior or mid-level frontend developer working in a real-world product environment.
+This is a small, practical product management app built for learning, experimentation, and portfolio presentation. It focuses on clear flow, straightforward UI, and a realistic example of frontend validation and API communication.
 
 ## Author
 
